@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="container pt-5">
     <div class="row">
-      <div class="col-12 col-lg-3">
+      <div class="col-12 col-lg-3 mb-3">
         <form @submit.prevent="login">
           <div class="form-group mb-2">
             <label for="email">Email</label>
@@ -27,21 +27,22 @@
         </form>
       </div>
     </div>
-    <!-- <a :href="authUrl">Login with google</a> -->
+    <button @click="loginGoogle" class="btn btn-light">
+      Login with Google
+    </button>
   </div>
 </template>
 
 <script>
-// import authUrl from '../plugins/oauth2Client'
-
 export default {
   data() {
     return {
       user: {
         email: '',
         password: ''
-        // authUrl
-      }
+      },
+      isLogin: false,
+      profile: {}
     }
   },
   created() {
@@ -59,6 +60,22 @@ export default {
         .catch((er) => {
           console.log(er)
         })
+    },
+    async loginGoogle() {
+      let googleUser = await this.$gAuth.signIn().catch(() => {})
+
+      console.log('google user', googleUser)
+      if (googleUser) {
+        let response = googleUser.getAuthResponse()
+        localStorage.setItem('local', response.access_token)
+        this.profile = googleUser.getBasicProfile()
+        // console.log('get Id', googleUser.getId())
+        // console.log('get base profile', googleUser.getBasicProfile())
+        // console.log('getAuthResponse', googleUser.getAuthResponse())
+        this.isLogin = this.$gAuth.isAuthorized
+
+        this.$router.push({ name: 'dashboard' })
+      }
     }
   }
 }
