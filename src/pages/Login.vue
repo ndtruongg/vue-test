@@ -30,19 +30,14 @@
     <button @click="loginGoogle" class="btn btn-light">
       Login with Google
     </button>
-    <LoginFacebook :btnClass="'btn-login-fb'" @profile="getProfile">
+    <btn-login-facebook @profile="getProfile" @token="getToken">
       Login with Facebook
-    </LoginFacebook>
+    </btn-login-facebook>
   </div>
 </template>
 
 <script>
-import LoginFacebook from '../components/LoginFacebook.vue'
-
 export default {
-  components: {
-    LoginFacebook
-  },
   data() {
     return {
       user: {
@@ -82,6 +77,9 @@ export default {
       }
     },
     getProfile(data) {
+      console.log(data)
+    },
+    getToken(data) {
       console.log(data)
     }
   }

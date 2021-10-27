@@ -6,6 +6,8 @@ import callApi from './plugins/axios'
 import router from './router'
 import store from './store'
 
+import BtnLoginFacebook from 'btn-login-facebook'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import GAuth from 'vue-google-oauth2'
@@ -19,6 +21,7 @@ const gauthOption = {
 
 Vue.use(GAuth, gauthOption)
 Vue.use(VueCookies)
+Vue.use(BtnLoginFacebook)
 Vue.$cookies.config('7d')
 
 Vue.config.productionTip = false
