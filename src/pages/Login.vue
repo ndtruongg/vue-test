@@ -30,11 +30,19 @@
     <button @click="loginGoogle" class="btn btn-light">
       Login with Google
     </button>
+    <LoginFacebook :btnClass="'btn-login-fb'" @profile="getProfile">
+      Login with Facebook
+    </LoginFacebook>
   </div>
 </template>
 
 <script>
+import LoginFacebook from '../components/LoginFacebook.vue'
+
 export default {
+  components: {
+    LoginFacebook
+  },
   data() {
     return {
       user: {
@@ -44,9 +52,6 @@ export default {
       isLogin: false,
       profile: {}
     }
-  },
-  created() {
-    console.log('hello')
   },
   mounted() {},
   methods: {
@@ -64,7 +69,6 @@ export default {
     async loginGoogle() {
       let googleUser = await this.$gAuth.signIn().catch(() => {})
 
-      console.log('google user', googleUser)
       if (googleUser) {
         let response = googleUser.getAuthResponse()
         localStorage.setItem('local', response.access_token)
@@ -76,9 +80,25 @@ export default {
 
         this.$router.push({ name: 'dashboard' })
       }
+    },
+    getProfile(data) {
+      console.log(data)
     }
   }
 }
 </script>
 
-<style></style>
+<style>
+.btn-login-fb {
+  color: white;
+  min-width: 150px;
+  background-color: #0451f6;
+  height: 2.5rem;
+  border-radius: 2rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+</style>

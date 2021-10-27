@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueCookies from 'vue-cookies'
+
 import callApi from './plugins/axios'
 import router from './router'
 import store from './store'
@@ -16,6 +18,8 @@ const gauthOption = {
 }
 
 Vue.use(GAuth, gauthOption)
+Vue.use(VueCookies)
+Vue.$cookies.config('7d')
 
 Vue.config.productionTip = false
 Vue.prototype.$callApi = callApi
