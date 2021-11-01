@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueCookies from 'vue-cookies'
+import dayjs from 'dayjs'
+import './assets/css/global.scss'
 
 import callApi from './plugins/axios'
 import router from './router'
@@ -26,6 +28,7 @@ Vue.$cookies.config('7d')
 
 Vue.config.productionTip = false
 Vue.prototype.$callApi = callApi
+Vue.prototype.$dayjs = dayjs
 
 new Vue({
   store,

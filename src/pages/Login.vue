@@ -55,6 +55,7 @@ export default {
         .post('/customer-login', this.user)
         .then((response) => {
           localStorage.setItem('local', response.data.token)
+          this.$cookies.set('vue-test', response.data.token)
           this.$router.push({ name: 'dashboard' })
         })
         .catch((er) => {
