@@ -7560,6 +7560,14 @@
     "ajv" "^6.12.5"
     "ajv-keywords" "^3.5.2"
 
+"scrollbar-auto-hide@^0.1.0":
+  "integrity" "sha512-XfJUl5Yg/5A47qpb998LcTtWlkY3GoIXL92Hhk+5zvrJmlrq8gaNHAWcxJ2MhNfjGndfcZGR+YDteF4Jwcj7Yw=="
+  "resolved" "https://registry.npmjs.org/scrollbar-auto-hide/-/scrollbar-auto-hide-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "core-js" "^3.6.5"
+    "vue" "^2.6.11"
+
 "scss-tokenizer@^0.2.3":
   "integrity" "sha1-jrBtualyMzOCTT9VMGQRSYR85dE="
   "resolved" "https://registry.npmjs.org/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz"
