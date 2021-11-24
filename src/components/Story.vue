@@ -234,7 +234,7 @@ button {
     background-color: rgba(0, 0, 0, 0.6);
 
     img {
-      width: 60%;
+      width: 40%;
     }
   }
 
