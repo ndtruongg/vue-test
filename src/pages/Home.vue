@@ -2,25 +2,24 @@
   <div class="container pt-5 pb-5">
     <h1 class="mb-3">Home</h1>
     <Story />
-    <scrollbar-auto-hide
-      :contentStyle="{ maxHeight: '600px' }"
-      :scrollBarStyle="{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }"
-      :trackStyle="{ borderRadius: '10px', backgroundColor: '#3498db' }"
-    >
-      <div class="content"></div>
-      <div class="content"></div>
-      <div class="content"></div>
-      <div class="content"></div>
-      <div class="content"></div>
-      <div class="content"></div>
-    </scrollbar-auto-hide>
+
+    <div class="mb-5"></div>
+
+    <the-tabs>
+      <the-tab :title="'tab 1'">Tab 1</the-tab>
+      <the-tab :title="'tab 2'">Tab 2</the-tab>
+      <the-tab :title="'tab 3'">Tab 3</the-tab>
+      <the-tab :title="'tab 4'">Tab 4</the-tab>
+    </the-tabs>
   </div>
 </template>
 
 <script>
 import Story from '../components/Story.vue'
+import TheTabs from '../components/TheTabs.vue'
+import TheTab from '../components/TheTab.vue'
 export default {
-  components: { Story }
+  components: { Story, TheTabs, TheTab }
 }
 </script>
 

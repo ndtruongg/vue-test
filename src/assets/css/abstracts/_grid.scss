@@ -1,0 +1,38 @@
+.col {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+$medias: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);
+
+@each $sign, $size in $medias {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      @extend .col;
+
+      -ms-flex: 0 0 #{$i * 100% / 12};
+      flex: 0 0 #{$i * 100% / 12};
+      max-width: #{$i * 100% / 12};
+    }
+
+    @media (min-width: $size) {
+      .col-#{$sign}-#{$i} {
+        -ms-flex: 0 0 #{$i * 100% / 12};
+        flex: 0 0 #{$i * 100% / 12};
+        max-width: #{$i * 100% / 12};
+      }
+
+      .order-#{$sign}-#{$i} {
+        -ms-flex-order: $i;
+        order: $i;
+      }
+    }
+  }
+}

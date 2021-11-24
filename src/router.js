@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import store from './store'
-
 import guest from './middleware/guest'
 import auth from './middleware/auth'
 import log from './middleware/log'
@@ -14,10 +12,20 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('./pages/Home.vue'),
+    component: () => import('./layouts/OpenSidebar.vue'),
     meta: {
       middleware: [log]
-    }
+    },
+    children: [
+      {
+        path: '',
+        component: () => import('./pages/Home.vue')
+      },
+      {
+        path: 'about',
+        component: () => import('./pages/About.vue')
+      }
+    ]
   },
   {
     path: '/login',
