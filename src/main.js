@@ -2,7 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueCookies from 'vue-cookies'
 import dayjs from 'dayjs'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/global.scss'
+import './assets/css/style.scss'
 
 import callApi from './plugins/axios'
 import router from './router'
@@ -11,8 +15,6 @@ import store from './store'
 import BtnLoginFacebook from 'btn-login-facebook'
 import ScrollbarAutoHide from 'scrollbar-auto-hide'
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import GAuth from 'vue-google-oauth2'
 
 const gauthOption = {

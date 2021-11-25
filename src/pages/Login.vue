@@ -33,6 +33,7 @@
     <btn-login-facebook @profile="getProfile" @token="getToken">
       Login with Facebook
     </btn-login-facebook>
+    <router-link to="/login/about">About</router-link>
   </div>
 </template>
 

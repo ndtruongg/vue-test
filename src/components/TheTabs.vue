@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="tabClass">
     <ul class="tabs__header">
       <li
         v-for="(tab, key) in tabs"
@@ -18,6 +18,7 @@
 <script>
 export default {
   name: 'TheTabs',
+  props: ['tabClass'],
   data() {
     return {
       selectedIndex: 0, // the index of the selected tab,

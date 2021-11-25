@@ -1,12 +1,14 @@
 <template>
   <div>
-    <h1>Layout Open sidebar</h1>
+    <Menu />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Menu from '../components/Menu.vue'
 export default {
+  components: { Menu },
   name: 'OpenSidebar'
 }
 </script>

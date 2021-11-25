@@ -20,17 +20,23 @@ const routes = [
       {
         path: '',
         component: () => import('./pages/Home.vue')
-      },
-      {
-        path: 'about',
-        component: () => import('./pages/About.vue')
       }
     ]
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('./pages/Login.vue'),
+    component: () => import('./layouts/OpenSidebar.vue'),
+    children: [
+      {
+        path: 'about',
+        component: () => import('./pages/About.vue')
+      },
+      {
+        path: '',
+        component: () => import('./pages/Login.vue')
+      }
+    ],
     meta: {
       middleware: [log, guest]
     }

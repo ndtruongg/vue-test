@@ -5,7 +5,7 @@
 
     <div class="mb-5"></div>
 
-    <the-tabs>
+    <the-tabs :tabClass="'tab-demo'">
       <the-tab :title="'tab 1'">Tab 1</the-tab>
       <the-tab :title="'tab 2'">Tab 2</the-tab>
       <the-tab :title="'tab 3'">Tab 3</the-tab>
