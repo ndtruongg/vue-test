@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import Menu from '../components/Menu.vue'
+import Menu from "../components/Menu.vue";
 export default {
   components: { Menu },
-  name: 'OpenSidebar'
-}
+  name: "OpenSidebar",
+};
 </script>
 
 <style lang="scss" scoped></style>

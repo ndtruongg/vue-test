@@ -1,24 +1,6 @@
 # vue-test
 
-## Project setup
-```
-npm install
-```
+## Plugins installed
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- vuesax `npm install vuesax@next` => [What is Vuesax](https://vuesax.com/docs/guide/#whats-is-vuesax)
+- Material icons `npm install material-icons --save` => [How to use Material Icon](https://fonts.google.com/icons)

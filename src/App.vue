@@ -6,8 +6,13 @@
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+  data() {
+    return {
+      active: 0,
+    };
+  },
+};
 </script>
 
 <style lang="css">

@@ -1,16 +1,28 @@
 const menu = [
   {
-    icon: require('../assets/academic.svg'),
-    title: 'Router 1',
-    path: '/',
-    exact: true
+    icon: "home",
+    title: "Home",
+    path: "/",
+    exact: true,
   },
   {
-    icon: require('../assets/academic.svg'),
-    title: 'Route 2',
-    path: '/login',
-    exact: false
-  }
-]
+    icon: "login",
+    title: "Login",
+    path: "/login",
+    exact: false,
+  },
+  {
+    icon: "face",
+    title: "About",
+    path: "/about",
+    exact: false,
+  },
+  {
+    icon: "whatshot",
+    title: "VueSax",
+    path: "/vuesax",
+    exact: false,
+  },
+];
 
-export default menu
+export default menu;

@@ -1,77 +1,83 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import store from './store'
-import guest from './middleware/guest'
-import auth from './middleware/auth'
-import log from './middleware/log'
-import middlewarePipeline from './middleware/middlewarePipeline'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "./store";
+import guest from "./middleware/guest";
+import auth from "./middleware/auth";
+import log from "./middleware/log";
+import middlewarePipeline from "./middleware/middlewarePipeline";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: () => import('./layouts/OpenSidebar.vue'),
+    path: "/",
+    name: "home",
+    component: () => import("./layouts/OpenSidebar.vue"),
     meta: {
-      middleware: [log]
+      middleware: [log],
     },
     children: [
       {
-        path: '',
-        component: () => import('./pages/Home.vue')
-      }
-    ]
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('./layouts/OpenSidebar.vue'),
-    children: [
-      {
-        path: 'about',
-        component: () => import('./pages/About.vue')
+        path: "",
+        component: () => import("./pages/Home.vue"),
       },
       {
-        path: '',
-        component: () => import('./pages/Login.vue')
-      }
+        path: "/about",
+        name: "about",
+        component: () => import("./pages/About.vue"),
+      },
+      {
+        path: "/vuesax",
+        name: "vuesax",
+        component: () => import("./pages/vuesax/VueSax.vue"),
+      },
     ],
-    meta: {
-      middleware: [log, guest]
-    }
   },
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('./pages/Dashboard.vue'),
+    path: "/login",
+    name: "login",
+    component: () => import("./layouts/OpenSidebar.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("./pages/Login.vue"),
+      },
+    ],
     meta: {
-      middleware: [auth]
-    }
-  }
-]
+      middleware: [log, guest],
+    },
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("./pages/Dashboard.vue"),
+    meta: {
+      middleware: [auth],
+    },
+  },
+];
 
-const router = new VueRouter({ mode: 'history', routes })
+const router = new VueRouter({ mode: "history", routes });
 
 router.beforeEach((to, from, next) => {
   if (!to.meta.middleware) {
-    return next()
+    return next();
   }
 
-  const middleware = to.meta.middleware
+  const middleware = to.meta.middleware;
 
   const context = {
     to,
     from,
     next,
     router,
-    store
-  }
+    store,
+  };
 
   return middleware[0]({
     ...context,
-    next: middlewarePipeline(context, middleware, 1)
-  })
-})
+    next: middlewarePipeline(context, middleware, 1),
+  });
+});
 
-export default router
+export default router;

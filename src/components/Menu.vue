@@ -3,7 +3,9 @@
     <ul class="menu-list">
       <li v-for="(item, key) of menus" :key="key" class="menu-item">
         <router-link :to="item.path" class="menu-link" :exact="item.exact">
-          <img :src="item.icon" :alt="item.title" />
+          <span class="material-icons">
+            {{ item.icon }}
+          </span>
           <span>{{ item.title }}</span>
         </router-link>
       </li>
@@ -12,22 +14,21 @@
 </template>
 
 <script>
-import menu from '../definition/menu'
+import menu from "../definition/menu";
 export default {
-  name: 'Menu',
+  name: "Menu",
   data() {
     return {
-      menus: menu
-    }
-  }
-}
+      menus: menu,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .menu {
-  display: flex;
-  flex-direction: column;
   &-list {
+    display: flex;
     list-style-type: none;
   }
 
@@ -35,9 +36,11 @@ export default {
     display: flex;
     align-items: center;
     height: 50px;
+    padding: 0 15px;
 
     &.router-link-active {
       background-color: lightblue;
+      border-radius: 5px;
     }
 
     img {
