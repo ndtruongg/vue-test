@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="stories__stage" v-if="show">
       <button class="stories__close" @click="closeStory">
-        <img src="../assets/cancel.png" alt="" />
+        <img src="@/assets/cancel.png" alt="" />
       </button>
       <div class="stories__item __show">
         <div class="stories__item--avatar">
@@ -22,12 +22,12 @@
           :class="play ? 'play' : 'pause'"
           @click="controlAudio"
         >
-          <img src="../assets/pause.svg" class="play__img" v-if="play" alt="" />
-          <img src="../assets/play.svg" class="pause__img" v-else alt="" />
+          <img src="@/assets/pause.svg" class="play__img" v-if="play" alt="" />
+          <img src="@/assets/play.svg" class="pause__img" v-else alt="" />
         </button>
 
         <audio controls autoplay id="story-audio">
-          <source type="audio/mpeg" src="../assets/mp3/intro.mp3" />
+          <source type="audio/mpeg" src="@/assets/mp3/intro.mp3" />
         </audio>
       </div>
     </div>
@@ -38,16 +38,16 @@
 export default {
   props: {
     show: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data() {
     return {
       play: false,
-      duration: 0
-    }
-  }
-}
+      duration: 0,
+    };
+  },
+};
 </script>
 
 <style></style>

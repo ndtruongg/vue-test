@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Menu from "../components/Menu.vue";
+import Menu from "../molecules/Menu.vue";
 export default {
   components: { Menu },
   name: "OpenSidebar",

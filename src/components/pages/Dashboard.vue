@@ -13,19 +13,19 @@
 </template>
 
 <script>
-import Comment from '../components/Comment.vue'
-import { mapGetters } from 'vuex'
-import Avatar from '../components/Avatar.vue'
+import Comment from "../molecules/Comment.vue";
+import { mapGetters } from "vuex";
+import Avatar from "../molecules/Avatar.vue";
 
 export default {
   components: {
     Comment,
-    Avatar
+    Avatar,
   },
   computed: {
     ...mapGetters({
-      user: 'user'
-    })
-  }
-}
+      user: "user",
+    }),
+  },
+};
 </script>

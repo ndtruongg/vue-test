@@ -23,6 +23,12 @@ const menu = [
     path: "/vuesax",
     exact: false,
   },
+  {
+    icon: "rss_feed",
+    title: "Blog",
+    path: "/blog",
+    exact: false,
+  },
 ];
 
 export default menu;

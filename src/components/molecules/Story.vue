@@ -27,7 +27,7 @@
     <transition name="fade">
       <div class="stories__stage" v-if="show">
         <button class="stories__close" @click="closeStory">
-          <img src="../assets/cancel.png" alt="" />
+          <img src="@/assets/cancel.png" alt="" />
         </button>
         <div class="stories__item __show">
           <div class="progress">
@@ -50,12 +50,12 @@
             @click="controlAudio"
           >
             <img
-              src="../assets/pause.svg"
+              src="@/assets/pause.svg"
               class="play__img"
               v-if="play"
               alt=""
             />
-            <img src="../assets/play.svg" class="pause__img" v-else alt="" />
+            <img src="@/assets/play.svg" class="pause__img" v-else alt="" />
           </button>
 
           <template v-if="stories_selected.type === 'image'">
@@ -91,55 +91,55 @@ export default {
       stories: [
         {
           id: 1,
-          type: 'image',
-          img_url: 'https://wallpaperaccess.com/full/809524.jpg',
-          audio_url: require('../assets/mp3/intro.mp3')
+          type: "image",
+          img_url: "https://wallpaperaccess.com/full/809524.jpg",
+          audio_url: require("@/assets/mp3/intro.mp3"),
         },
         {
           id: 2,
-          type: 'video',
+          type: "video",
           img_url:
-            'https://images.hdqwalls.com/download/vegeta-2020-2s-1080x1920.jpg',
-          audio_url: '',
-          video_url: require('../assets/video/video_1.mp4')
-        }
-      ]
-    }
+            "https://images.hdqwalls.com/download/vegeta-2020-2s-1080x1920.jpg",
+          audio_url: "",
+          video_url: require("@/assets/video/video_1.mp4"),
+        },
+      ],
+    };
   },
   methods: {
     controlAudio() {
-      this.play = !this.play
-      const storyMedia = document.getElementById('story-media')
+      this.play = !this.play;
+      const storyMedia = document.getElementById("story-media");
       if (this.play) {
-        storyMedia.play()
+        storyMedia.play();
       } else {
-        storyMedia.pause()
+        storyMedia.pause();
       }
     },
     showStory(key) {
-      this.stories_selected = this.stories[key]
+      this.stories_selected = this.stories[key];
 
-      this.play = true
-      this.show = true
+      this.play = true;
+      this.show = true;
     },
     closeStory() {
-      this.play = false
-      this.show = false
+      this.play = false;
+      this.show = false;
     },
     updateTrackTime() {
-      const storyMedia = document.getElementById('story-media')
+      const storyMedia = document.getElementById("story-media");
       if (storyMedia) {
         this.duration = parseInt(
           (storyMedia.currentTime * 100) / storyMedia.duration
-        )
+        );
 
         if (this.duration === 100) {
-          this.play = false
+          this.play = false;
         }
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -252,7 +252,7 @@ button {
     background-color: rgba(0, 0, 0, 0.7);
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;

@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import Story from '../components/Story.vue'
-import TheTabs from '../components/TheTabs.vue'
-import TheTab from '../components/TheTab.vue'
+import Story from "../molecules/Story.vue";
+import TheTabs from "../molecules/TheTabs.vue";
+import TheTab from "../molecules/TheTab.vue";
 export default {
-  components: { Story, TheTabs, TheTab }
-}
+  components: { Story, TheTabs, TheTab },
+};
 </script>
 
 <style lang="scss" scoped>

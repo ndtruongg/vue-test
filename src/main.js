@@ -14,6 +14,8 @@ import Vuesax from "vuesax";
 import callApi from "./plugins/axios";
 import router from "./router";
 import store from "./store";
+import axios from "axios";
+import "@/components/_global.js";
 
 import BtnLoginFacebook from "btn-login-facebook";
 import ScrollbarAutoHide from "scrollbar-auto-hide";
@@ -45,6 +47,7 @@ Vue.$cookies.config("7d");
 Vue.config.productionTip = false;
 Vue.prototype.$callApi = callApi;
 Vue.prototype.$dayjs = dayjs;
+Vue.prototype.$axios = axios;
 
 new Vue({
   store,

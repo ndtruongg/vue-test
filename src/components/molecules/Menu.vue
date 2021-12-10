@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import menu from "../definition/menu";
+import menu from "@/definition/menu";
 export default {
   name: "Menu",
   data() {

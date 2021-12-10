@@ -1,0 +1,35 @@
+// Globally register all base components for convenience, because they
+// will be used very frequently. Components are registered using the
+// PascalCased version of their file name.
+
+import Vue from "vue";
+
+// https://webpack.js.org/guides/dependency-management/#require-context
+const requireComponent = require.context(
+  // Look for files in the current directory
+  "./atoms",
+  // Do not look in subdirectories
+  false,
+  // Only include "_base-" prefixed .vue files
+  /Base[A-Z]\w+\.(vue|js)$/
+);
+
+// For each matching file name...
+requireComponent.keys().forEach((fileName) => {
+  // Get the component config
+  const componentConfig = requireComponent(fileName);
+  // Get the LowerCase version of the component name
+  const componentName = fileName
+    // Remove the "./_" from the beginning
+    .replace("./", "")
+    // Remove the file extension from the end
+    .replace(/\.\w+$/, "")
+    // split by uppercase
+    .split(/(?=[A-Z])/)
+    // concatenated
+    .join("-")
+    // lowercase
+    .toLowerCase();
+
+  Vue.component(componentName, componentConfig.default || componentConfig);
+});

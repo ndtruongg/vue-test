@@ -12,35 +12,39 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("./layouts/OpenSidebar.vue"),
+    component: () => import("./components/templates/OpenSidebar.vue"),
     meta: {
       middleware: [log],
     },
     children: [
       {
         path: "",
-        component: () => import("./pages/Home.vue"),
+        component: () => import("./components/pages/Home.vue"),
       },
       {
         path: "/about",
         name: "about",
-        component: () => import("./pages/About.vue"),
+        component: () => import("./components/pages/About.vue"),
       },
       {
         path: "/vuesax",
         name: "vuesax",
-        component: () => import("./pages/vuesax/VueSax.vue"),
+        component: () => import("./components/pages/vuesax/VueSax.vue"),
+      },
+      {
+        path: "/blog",
+        component: () => import("./components/pages/Blog.vue"),
       },
     ],
   },
   {
     path: "/login",
     name: "login",
-    component: () => import("./layouts/OpenSidebar.vue"),
+    component: () => import("./components/templates/OpenSidebar.vue"),
     children: [
       {
         path: "",
-        component: () => import("./pages/Login.vue"),
+        component: () => import("./components/pages/Login.vue"),
       },
     ],
     meta: {
@@ -50,7 +54,7 @@ const routes = [
   {
     path: "/dashboard",
     name: "dashboard",
-    component: () => import("./pages/Dashboard.vue"),
+    component: () => import("./components/pages/Dashboard.vue"),
     meta: {
       middleware: [auth],
     },

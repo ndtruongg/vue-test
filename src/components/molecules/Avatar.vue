@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  props: ['width', 'url']
-}
+  props: ["width", "url"],
+};
 </script>
 
 <style lang="scss" scoped>

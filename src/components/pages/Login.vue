@@ -34,58 +34,72 @@
       Login with Facebook
     </btn-login-facebook>
     <router-link to="/login/about">About</router-link>
+
+    <div class="d-flex">
+      <label for="">Base Input</label>
+      <m-search-form></m-search-form>
+    </div>
   </div>
 </template>
 
 <script>
+import MSearchForm from "@/components/molecules/MSearchFrom.vue";
+
 export default {
+  components: {
+    MSearchForm,
+  },
   data() {
     return {
+      inputValue: "",
       user: {
-        email: '',
-        password: ''
+        email: "",
+        password: "",
       },
       isLogin: false,
-      profile: {}
-    }
+      profile: {},
+    };
   },
   mounted() {},
   methods: {
     login() {
       this.$callApi
-        .post('/customer-login', this.user)
+        .post("/customer-login", this.user)
         .then((response) => {
-          localStorage.setItem('local', response.data.token)
-          this.$cookies.set('vue-test', response.data.token)
-          this.$router.push({ name: 'dashboard' })
+          localStorage.setItem("local", response.data.token);
+          this.$cookies.set("vue-test", response.data.token);
+          this.$router.push({ name: "dashboard" });
         })
         .catch((er) => {
-          console.log(er)
-        })
+          console.log(er);
+        });
     },
     async loginGoogle() {
-      let googleUser = await this.$gAuth.signIn().catch(() => {})
+      let googleUser = await this.$gAuth.signIn().catch(() => {});
 
       if (googleUser) {
-        let response = googleUser.getAuthResponse()
-        localStorage.setItem('local', response.access_token)
-        this.profile = googleUser.getBasicProfile()
+        let response = googleUser.getAuthResponse();
+        localStorage.setItem("local", response.access_token);
+        this.profile = googleUser.getBasicProfile();
         // console.log('get Id', googleUser.getId())
         // console.log('get base profile', googleUser.getBasicProfile())
         // console.log('getAuthResponse', googleUser.getAuthResponse())
-        this.isLogin = this.$gAuth.isAuthorized
+        this.isLogin = this.$gAuth.isAuthorized;
 
-        this.$router.push({ name: 'dashboard' })
+        this.$router.push({ name: "dashboard" });
       }
     },
     getProfile(data) {
-      console.log(data)
+      console.log(data);
     },
     getToken(data) {
-      console.log(data)
-    }
-  }
-}
+      console.log(data);
+    },
+    clickBaseButton() {
+      console.log("click");
+    },
+  },
+};
 </script>
 
 <style>
