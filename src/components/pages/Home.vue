@@ -1,5 +1,7 @@
 <template>
   <div class="container pt-5 pb-5">
+    <Calendar />
+
     <h1 class="mb-3">Home</h1>
     <Story />
 
@@ -18,8 +20,10 @@
 import Story from "../molecules/Story.vue";
 import TheTabs from "../molecules/TheTabs.vue";
 import TheTab from "../molecules/TheTab.vue";
+import Calendar from "../organisms/Calendar.vue";
+
 export default {
-  components: { Story, TheTabs, TheTab },
+  components: { Story, TheTabs, TheTab, Calendar },
 };
 </script>
 
