@@ -43,7 +43,7 @@
                     getDiffBetween2Date(item.startDate, item.endDate) *
                       (100 / 7) +
                     '%',
-                  top: key * 30 + 'px',
+                  top: key * 35 + 'px',
                   left: getLeftVal(item.startDate) * (100 / 7) + '%',
                 }"
               >
@@ -69,13 +69,13 @@ export default {
           date: "21/12/2021",
           events: [
             {
-              startDate: "21/12/2021",
-              endDate: "25/12/2021",
+              startDate: "12/21/2021",
+              endDate: "12/25/2021",
               title: "merry christmas",
             },
             {
-              startDate: "21/12/2021",
-              endDate: "21/12/2021",
+              startDate: "12/21/2021",
+              endDate: "12/21/2021",
               title: "Test",
             },
           ],
@@ -99,8 +99,7 @@ export default {
       let date2 = new Date(endDate);
       const diffTime = Math.abs(date2 - date1);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-      return diffDays;
+      return diffDays ? diffDays : 1;
     },
 
     getLeftVal(startDate) {
