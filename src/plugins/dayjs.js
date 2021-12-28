@@ -7,8 +7,8 @@ const isYesterday = require("dayjs/plugin/isYesterday");
 const isoWeek = require("dayjs/plugin/isoWeek");
 const weekOfYear = require("dayjs/plugin/weekOfYear");
 
-dayjs.extend(weekOfYear);
 dayjs.extend(isoWeek);
+dayjs.extend(weekOfYear);
 dayjs.locale("ja");
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);

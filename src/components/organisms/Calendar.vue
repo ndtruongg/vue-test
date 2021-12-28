@@ -203,7 +203,11 @@ export default {
 
     changeWeek(type) {
       if (type === "prev") {
-        this.dateObject = dayjs().weekday();
+        this.dateObject = dayjs().week(this.dateObject.week() - 1);
+      } else if (type === "next") {
+        this.dateObject = dayjs().week(this.dateObject.week() + 1);
+      } else {
+        this.dateObject = dayjs();
       }
     },
   },
