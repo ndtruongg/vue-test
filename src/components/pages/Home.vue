@@ -1,29 +1,14 @@
 <template>
   <div class="container pt-5 pb-5">
     <Calendar />
-
-    <h1 class="mb-3">Home</h1>
-    <Story />
-
-    <div class="mb-5"></div>
-
-    <the-tabs :tabClass="'tab-demo'">
-      <the-tab :title="'tab 1'">Tab 1</the-tab>
-      <the-tab :title="'tab 2'">Tab 2</the-tab>
-      <the-tab :title="'tab 3'">Tab 3</the-tab>
-      <the-tab :title="'tab 4'">Tab 4</the-tab>
-    </the-tabs>
   </div>
 </template>
 
 <script>
-import Story from "../molecules/Story.vue";
-import TheTabs from "../molecules/TheTabs.vue";
-import TheTab from "../molecules/TheTab.vue";
 import Calendar from "../organisms/Calendar.vue";
 
 export default {
-  components: { Story, TheTabs, TheTab, Calendar },
+  components: { Calendar },
 };
 </script>
 
