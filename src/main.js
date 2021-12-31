@@ -15,6 +15,7 @@ import callApi from "./plugins/axios";
 import router from "./router";
 import store from "./store";
 import axios from "axios";
+import _ from "lodash";
 import "@/components/_global.js";
 
 import BtnLoginFacebook from "btn-login-facebook";
@@ -48,6 +49,8 @@ Vue.config.productionTip = false;
 Vue.prototype.$callApi = callApi;
 Vue.prototype.$dayjs = dayjs;
 Vue.prototype.$axios = axios;
+Vue.prototype.$_ = _;
+// Object.defineProperty(Vue.prototype, "$_", { value: _ });
 
 new Vue({
   store,

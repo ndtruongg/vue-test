@@ -1,14 +1,18 @@
 <template>
   <div class="container pt-5 pb-5">
     <Calendar />
+    <div class="mb-3"></div>
+
+    <Chat />
   </div>
 </template>
 
 <script>
 import Calendar from "../organisms/Calendar.vue";
+import Chat from "../organisms/Chat.vue";
 
 export default {
-  components: { Calendar },
+  components: { Calendar, Chat },
 };
 </script>
 
