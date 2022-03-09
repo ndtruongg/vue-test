@@ -1,18 +1,59 @@
 <template>
   <div class="container pt-5 pb-5">
     <Calendar />
-    <div class="mb-3"></div>
-
+    <Modal>
+      <div class="mb-3" id="asdf"></div>
+    </Modal>
     <Chat />
+
+    <p>{{ auth }}</p>
+    <div v-for="(item, key) of units" :key="key">
+      <input
+        type="checkbox"
+        :id="'unit_' + key"
+        :checked="item.checked"
+        @change="updateChecked(item)"
+      />
+      <label :for="'unit_' + key">{{ item.video_title }}</label>
+    </div>
+
+    <div v-for="(item, key) of units" :key="key">
+      <input
+        type="checkbox"
+        :id="'unit_' + key"
+        :checked="item.checked"
+        @change="updateChecked(item)"
+      />
+      <label :for="'unit_' + key">{{ item.video_title }}</label>
+    </div>
   </div>
 </template>
 
 <script>
 import Calendar from "../organisms/Calendar.vue";
 import Chat from "../organisms/Chat.vue";
+import Modal from "./Modal.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  components: { Calendar, Chat },
+  components: { Calendar, Chat, Modal },
+
+  computed: {
+    ...mapGetters({
+      auth: "auth",
+      units: "units",
+    }),
+  },
+
+  mounted() {
+    console.log(document.getElementById("asdf"));
+  },
+
+  methods: {
+    updateChecked(item) {
+      this.$store.commit("UPDATE_UNIT", item);
+    },
+  },
 };
 </script>
 
