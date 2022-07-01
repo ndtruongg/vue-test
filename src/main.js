@@ -3,6 +3,7 @@ import App from "./App.vue";
 import VueCookies from "vue-cookies";
 import dayjs from "dayjs";
 
+import "animate.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./assets/css/global.scss";

@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <input type="checkbox" v-model="authen" /> {{ authen }}
-    <router-view></router-view>
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+    >
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -15,24 +20,21 @@ export default {
     };
   },
   computed: {
-    authen: {
-      get() {
-        return this.$store.state.auth;
-      },
-
-      set(val) {
-        this.$store.commit("SET_AUTH", val);
-      },
-    },
-
-    ...mapGetters({
-      auth: "auth",
-    }),
+    ...mapGetters({}),
   },
   watch: {
     auth: function(val) {
       console.log(val);
     },
+  },
+
+  mounted() {
+    window.onbeforeunload = function(e) {
+      console.log(e);
+      e.preventDefault();
+      alert(confirm("Confirm refresh"));
+      return confirm("Confirm refresh");
+    };
   },
 };
 </script>

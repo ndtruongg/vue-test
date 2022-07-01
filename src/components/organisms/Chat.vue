@@ -208,7 +208,9 @@ export default {
 
     scrollToBottom() {
       const chatBox = document.getElementById("chat-histories");
-      chatBox.scrollTop = chatBox.scrollHeight;
+      if (chatBox) {
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
     },
 
     loginWithGoogle() {
