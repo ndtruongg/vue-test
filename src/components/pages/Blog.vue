@@ -2,7 +2,8 @@
   <div>
     <Story />
 
-    <PieChart :percent="95" />
+    <PieChart :percent="75" />
+    <PieChart :percent="65" :width="'200px'" />
   </div>
 </template>
 
